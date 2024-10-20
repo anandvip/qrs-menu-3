@@ -6,118 +6,174 @@
     <title>QRS Wellness Centre Menu</title>
     <style>
         :root {
-            --bg-color: #ffffff;
+            --primary-color: #4a90e2;
+            --secondary-color: #f0f4f8;
             --text-color: #333333;
-            --header-bg: #4a90e2;
-            --header-text: #ffffff;
+            --background-color: #ffffff;
+            --card-background: #f9f9f9;
+            --shadow-color: rgba(0, 0, 0, 0.1);
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: all 0.3s ease;
+            background-color: var(--background-color);
             margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
         }
 
-        .dark-theme {
-            --bg-color: #333333;
-            --text-color: #ffffff;
-            --header-bg: #1a5f9e;
-            --header-text: #ffffff;
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
         }
 
-        h1, h2 {
-            color: var(--header-bg);
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
         }
 
         .menu-section {
-            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .menu-item {
-            margin-bottom: 10px;
+            background-color: var(--card-background);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
         }
 
         .price {
             font-weight: bold;
-            color: var(--header-bg);
+            color: var(--primary-color);
         }
 
-        #theme-toggle {
+        .theme-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 10px;
-            background-color: var(--header-bg);
-            color: var(--header-text);
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: #3a7bc8;
+        }
+
+        .dark-theme {
+            --primary-color: #61a5f3;
+            --secondary-color: #2c3e50;
+            --text-color: #f0f0f0;
+            --background-color: #1a1a1a;
+            --card-background: #2c2c2c;
+            --shadow-color: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .menu-section {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <button id="theme-toggle">Toggle Theme</button>
+    <button class="theme-toggle" id="theme-toggle">Toggle Theme</button>
 
-    <h1>QRS WELLNESS CENTRE</h1>
-    <p>Powered by German QRS Technology</p>
+    <header>
+        <h1>QRS WELLNESS CENTRE</h1>
+        <p>Powered by German QRS Technology</p>
+    </header>
 
-    <div class="menu-section">
-        <h2>INDIVIDUAL TREATMENTS</h2>
+    <div class="container">
+        <section>
+            <h2>INDIVIDUAL TREATMENTS</h2>
+            <div class="menu-section">
+                <div class="menu-item">
+                    <h3>QRS Magnetic Field Therapy</h3>
+                    <p>Full Body Session (60 min) <span class="price">₹3,000</span></p>
+                    <p>Targeted Therapy (30 min) <span class="price">₹1,500</span></p>
+                    <p><em>(Knee, Back, Neck, etc.)</em></p>
+                </div>
 
-        <div class="menu-item">
-            <h3>1. QRS Magnetic Field Therapy</h3>
-            <p>- Full Body Session (60 min) <span class="price">₹3,000</span></p>
-            <p>- Targeted Therapy (30 min) <span class="price">₹1,500</span></p>
-            <p>(Knee, Back, Neck, etc.)</p>
-        </div>
+                <div class="menu-item">
+                    <h3>Pain Management Programs</h3>
+                    <p>QRS Knee Pain Relief (45 min) <span class="price">₹2,500</span></p>
+                    <p>QRS Pelvic Pain Management (45 min) <span class="price">₹2,500</span></p>
+                    <p>Chronic Back Pain Therapy (60 min) <span class="price">₹3,500</span></p>
+                </div>
+            </div>
+        </section>
 
-        <div class="menu-item">
-            <h3>2. Pain Management Programs</h3>
-            <p>- QRS Knee Pain Relief (45 min) <span class="price">₹2,500</span></p>
-            <p>- QRS Pelvic Pain Management (45 min) <span class="price">₹2,500</span></p>
-            <p>- Chronic Back Pain Therapy (60 min) <span class="price">₹3,500</span></p>
-        </div>
+        <section>
+            <h2>PACKAGES AND PROGRAMS</h2>
+            <div class="menu-section">
+                <div class="menu-item">
+                    <h3>Early Bird Wellness Program</h3>
+                    <p>30 Sessions (Valid for 3 months) <span class="price">₹45,000</span></p>
+                    <p><em>Includes mix of QRS therapies and consultations</em></p>
+                </div>
 
-        <!-- Add more menu items here -->
+                <div class="menu-item">
+                    <h3>Quarterly Wellness Plans</h3>
+                    <p>1st Quarter (50 sessions) <span class="price">₹75,000</span></p>
+                    <p>2nd Quarter (60 sessions) <span class="price">₹90,000</span></p>
+                    <p>3rd Quarter (75 sessions) <span class="price">₹112,500</span></p>
+                    <p>4th Quarter (95 sessions) <span class="price">₹142,500</span></p>
+                </div>
 
+                <div class="menu-item">
+                    <h3>Membership Plans</h3>
+                    <p>Silver (1 month unlimited) <span class="price">₹25,000</span></p>
+                    <p>Gold (3 months unlimited) <span class="price">₹60,000</span></p>
+                    <p>Platinum (6 months unlimited) <span class="price">₹100,000</span></p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>All treatments include initial consultation with our qualified staff.</p>
+            <p>Customized packages available upon request.</p>
+            <p>Prices are subject to change. Please inquire about current offers and discounts.</p>
+            <p><strong>Experience the power of German QRS Technology for your holistic wellness journey!</strong></p>
+        </footer>
     </div>
-
-    <div class="menu-section">
-        <h2>PACKAGES AND PROGRAMS</h2>
-
-        <div class="menu-item">
-            <h3>7. Early Bird Wellness Program</h3>
-            <p>- 30 Sessions (Valid for 3 months) <span class="price">₹45,000</span></p>
-            <p>Includes mix of QRS therapies and consultations</p>
-        </div>
-
-        <div class="menu-item">
-            <h3>8. Quarterly Wellness Plans</h3>
-            <p>- 1st Quarter (50 sessions) <span class="price">₹75,000</span></p>
-            <p>- 2nd Quarter (60 sessions) <span class="price">₹90,000</span></p>
-          <p>- 3rd Quarter (75 sessions) <span class="price">₹112,500</span></p>
-            <p>- 4th Quarter (95 sessions) <span class="price">₹142,500</span></p>
-        </div>
-
-        <!-- Add more package items here -->
-
-        <div class="menu-item">
-            <h3>12. Membership Plans</h3>
-            <p>- Silver (1 month unlimited) <span class="price">₹25,000</span></p>
-            <p>- Gold (3 months unlimited) <span class="price">₹60,000</span></p>
-            <p>- Platinum (6 months unlimited) <span class="price">₹100,000</span></p>
-        </div>
-    </div>
-
-    <p>All treatments include initial consultation with our qualified staff.</p>
-    <p>Customized packages available upon request.</p>
-    <p>Prices are subject to change. Please inquire about current offers and discounts.</p>
-
-    <p><strong>Experience the power of German QRS Technology for your holistic wellness journey!</strong></p>
 
     <script>
         const themeToggle = document.getElementById('theme-toggle');
@@ -125,12 +181,7 @@
 
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-theme');
-            
-            if (body.classList.contains('dark-theme')) {
-                themeToggle.textContent = 'Light Theme';
-            } else {
-                themeToggle.textContent = 'Dark Theme';
-            }
+            themeToggle.textContent = body.classList.contains('dark-theme') ? 'Light Theme' : 'Dark Theme';
         });
     </script>
 </body>
