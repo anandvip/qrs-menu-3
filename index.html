@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRS Wellness Centre Menu</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --header-bg: #4a90e2;
+            --header-text: #ffffff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .dark-theme {
+            --bg-color: #333333;
+            --text-color: #ffffff;
+            --header-bg: #1a5f9e;
+            --header-text: #ffffff;
+        }
+
+        h1, h2 {
+            color: var(--header-bg);
+        }
+
+        .menu-section {
+            margin-bottom: 30px;
+        }
+
+        .menu-item {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--header-bg);
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle">Toggle Theme</button>
+
+    <h1>QRS WELLNESS CENTRE</h1>
+    <p>Powered by German QRS Technology</p>
+
+    <div class="menu-section">
+        <h2>INDIVIDUAL TREATMENTS</h2>
+
+        <div class="menu-item">
+            <h3>1. QRS Magnetic Field Therapy</h3>
+            <p>- Full Body Session (60 min) <span class="price">₹3,000</span></p>
+            <p>- Targeted Therapy (30 min) <span class="price">₹1,500</span></p>
+            <p>(Knee, Back, Neck, etc.)</p>
+        </div>
+
+        <div class="menu-item">
+            <h3>2. Pain Management Programs</h3>
+            <p>- QRS Knee Pain Relief (45 min) <span class="price">₹2,500</span></p>
+            <p>- QRS Pelvic Pain Management (45 min) <span class="price">₹2,500</span></p>
+            <p>- Chronic Back Pain Therapy (60 min) <span class="price">₹3,500</span></p>
+        </div>
+
+        <!-- Add more menu items here -->
+
+    </div>
+
+    <div class="menu-section">
+        <h2>PACKAGES AND PROGRAMS</h2>
+
+        <div class="menu-item">
+            <h3>7. Early Bird Wellness Program</h3>
+            <p>- 30 Sessions (Valid for 3 months) <span class="price">₹45,000</span></p>
+            <p>Includes mix of QRS therapies and consultations</p>
+        </div>
+
+        <div class="menu-item">
+            <h3>8. Quarterly Wellness Plans</h3>
+            <p>- 1st Quarter (50 sessions) <span class="price">₹75,000</span></p>
+            <p>- 2nd Quarter (60 sessions) <span class="price">₹90,000</span></p>
+          <p>- 3rd Quarter (75 sessions) <span class="price">₹112,500</span></p>
+            <p>- 4th Quarter (95 sessions) <span class="price">₹142,500</span></p>
+        </div>
+
+        <!-- Add more package items here -->
+
+        <div class="menu-item">
+            <h3>12. Membership Plans</h3>
+            <p>- Silver (1 month unlimited) <span class="price">₹25,000</span></p>
+            <p>- Gold (3 months unlimited) <span class="price">₹60,000</span></p>
+            <p>- Platinum (6 months unlimited) <span class="price">₹100,000</span></p>
+        </div>
+    </div>
+
+    <p>All treatments include initial consultation with our qualified staff.</p>
+    <p>Customized packages available upon request.</p>
+    <p>Prices are subject to change. Please inquire about current offers and discounts.</p>
+
+    <p><strong>Experience the power of German QRS Technology for your holistic wellness journey!</strong></p>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                themeToggle.textContent = 'Light Theme';
+            } else {
+                themeToggle.textContent = 'Dark Theme';
+            }
+        });
+    </script>
+</body>
+</html>
